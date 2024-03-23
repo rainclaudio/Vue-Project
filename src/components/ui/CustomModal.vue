@@ -25,7 +25,16 @@ export default {
   props: {
     show: Boolean,
     title: String,
+    header: String,
     content: String,
+       width: { 
+      type: [String, Number], 
+      default: 'auto', 
+    },
+     bodyMaxHeight: { 
+      type: String,
+      default: '500', 
+    },
   },
   computed: {
     // Use a computed property that relies on props for reactivity
