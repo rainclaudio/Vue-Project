@@ -24,15 +24,15 @@ export default {
   },
   data() {
     return {
-      internalValue: this.value, // Use internal value for the v-model
+      internalValue: this.value, 
     };
   },
   watch: {
-    // Watch for external value changes to update internal
+   
     value(newValue) {
       this.internalValue = newValue;
     },
-    // Watch for internal value changes to emit update to parent
+  
     internalValue(newValue) {
       this.$emit('input', newValue);
     },

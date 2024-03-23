@@ -57,7 +57,6 @@
         width="600"
       >
         <template #body>
-          <!-- You can put any custom content here, including other components -->
           <div>This is dynamic body content!</div>
           <v-img
             src="https://example.com/some-image.jpg"
@@ -72,16 +71,14 @@
 
       <template>
         <div>
-          <!-- Using the spinner with custom parameters -->
           <CustomSpinner v-if="loading" color="red" :size="70" :width="5" />
-          <!-- Your other template elements -->
         </div>
       </template>
       
 
  <div v-if="getArticles.length > 0">
     <div v-for="article in getArticles" :key="article.id">
-      <h2>{{ article.title }}</h2>
+      <h2>{{ article.story_title }}</h2>
       <p>{{ article.content }}</p>
     </div>
   </div>
@@ -113,15 +110,15 @@ export default {
     CustomSpinner,
   },
   computed: {
-    ...mapGetters("articleStore", ["getArticles"]), // Add a computed property to get articles
+    ...mapGetters("articleStore", ["getArticles"]), 
  
   },
   created() {
-    this.fetchArticles(); // Dispatch the action to fetch articles   
+    this.fetchArticles(); 
     this.fetchData();
   },
   methods: {
-    ...mapActions("articleStore", ["fetchArticles"]), // Add this line
+    ...mapActions("articleStore", ["fetchArticles"]), 
   
 
     learnMore() {

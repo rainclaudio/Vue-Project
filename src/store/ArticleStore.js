@@ -1,3 +1,5 @@
+import agent from "@/api/agent";
+
 export default {
   namespaced: true,
   state: () => ({
@@ -10,25 +12,23 @@ export default {
   },
   actions: {
     fetchArticles({ commit }) {
-      // Here, you would fetch your articles from an API
-      // For demonstration, we'll use dummy data
-      const articles = [
-        {
-          id: 1,
-          title: "Vue.js is awesome!",
-          content: "Here is why Vue.js is awesome...",
-        },
-        // More articles
-      ];
-      commit("setArticles", articles);
+      const params = {
+        query: "coding", 
+      };
+
+      agent.Articles.get_by_date(params)
+        .then((articleResponse) => {
+          console.log(articleResponse)
+          commit("setArticles", articleResponse.hits); 
+        })
+        .catch((error) => {
+          console.error("Error fetching articles:", error);
+        });
     },
   },
   getters: {
-    getArticleById: (state) => (id) => {
-      return state.articles.find((article) => article.id === id);
-    },
     getArticles: (state) => {
-      return state.articles; // Returns all articles
+      return state.articles;
     },
   },
 };

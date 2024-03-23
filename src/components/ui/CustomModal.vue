@@ -3,13 +3,11 @@
     <v-card>
       <v-card-title class="text-h5">{{ header }}</v-card-title>
       <v-card-text class="overflow-y-auto" :style="{ maxHeight: bodyMaxHeight }">
-        <!-- Dynamically render passed content -->
         <slot name="body">
           {{ body }}
         </slot>
       </v-card-text>
       <v-card-actions>
-        <!-- Dynamically render footer content if provided -->
         <slot name="footer">
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" text @click="close">Close</v-btn>
@@ -37,13 +35,11 @@ export default {
     },
   },
   computed: {
-    // Use a computed property that relies on props for reactivity
     internalShow: {
       get() {
         return this.show;
       },
       set(value) {
-        // Instead of mutating the prop, emit an event
         this.$emit('update:show', value);
       },
     },
