@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import articleStore from "./articleStore"; // Make sure this import path is correct
+import articleStore from "./articleStore"; 
 
 Vue.use(Vuex);
 

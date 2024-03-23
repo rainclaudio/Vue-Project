@@ -1,22 +1,15 @@
 <template>
   <div>
-    <CustomCard>
-      
-    </CustomCard>
+    <!-- Use props.article to access the passed article data -->
     <CustomCard
-      :productName="article.story_title"
+      :title="article.story_title ? article.story_title : article.title"
       productDescription="This product is truly amazing. Buy it now!"
       :buttons="[
         {
           text: 'Learn More',
           color: 'primary',
-          action: () => learnMore(article),
-        },
-        {
-          text: 'Add to Cart',
-          color: 'secondary',
-          action: () => addToCart(article),
-        },
+          action: () => openModal(article),
+        }
       ]"
     />
   </div>
@@ -29,6 +22,9 @@ export default {
   components: {
     CustomCard
   },
+  props: {
+    article: Object // Define article as a prop
+  },
   name: "ArticleItem",
   data() {
     return {
@@ -37,5 +33,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>

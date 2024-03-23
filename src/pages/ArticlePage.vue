@@ -1,7 +1,5 @@
 <template>
   <div>
-    <div>ArticleList</div>
-    <p>{{ message }}</p>
     <ArticleList></ArticleList>
   </div>
   

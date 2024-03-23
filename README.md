@@ -20,7 +20,10 @@ npm install
 npm run serve
 ```
 ## 3. Features
+1. One important thing to notice is that articles should be grouped by ID, since the endpoint returns results related with coding
 
+1. Group by story ID
+2.
 ## 4. Security aspects
 
 ## 5. Error handling

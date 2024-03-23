@@ -1,13 +1,7 @@
 <template>
-  <v-card class="mx-auto" max-width="344" outlined>
-    <v-img
-      :src="imageUrl"
-      height="100px"
-      class="white--text align-end"
-      gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-    >
-      <v-card-title>{{ productName }}</v-card-title>
-    </v-img>
+  <v-card class="mx-auto" >
+    
+      <v-card-title>{{ title }}</v-card-title>
 
     <v-card-text>
       {{ productDescription }}
@@ -33,11 +27,10 @@ export default {
   props: {
     imageUrl: {
       type: String,
-      required: true,
     },
-    productName: {
+    title: {
       type: String,
-      required: true,
+      // required: true,
     },
     productDescription: {
       type: String,
