@@ -15,9 +15,10 @@
 ## 2. Getting Started
 ```
 npm install
+```
+```
 npm run serve
 ```
-
 ## 3. Features
 
 ## 4. Security aspects
