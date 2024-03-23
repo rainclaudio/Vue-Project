@@ -38,15 +38,6 @@
 
       <CustomToggle :options="toggleOptions" v-model="selectedOption" />
 
-      <CustomCard
-        imageUrl="https://example.com/image-url.jpg"
-        productName="Amazing Product"
-        productDescription="This product is truly amazing. Buy it now!"
-        :buttons="[
-          { text: 'Learn More', color: 'primary', action: learnMore },
-          { text: 'Add to Cart', color: 'secondary', action: addToCart },
-        ]"
-      />
 
       <!-- MODAL COMPONENT -->
       <v-btn color="primary" @click="showModal = true">Open Modal</v-btn>
@@ -76,16 +67,36 @@
       </template>
       
 
+    
  <div v-if="getArticles.length > 0">
-    <div v-for="article in getArticles" :key="article.id">
-      <h2>{{ article.story_title }}</h2>
-      <p>{{ article.content }}</p>
-    </div>
+    <v-container class="bg-surface-variant">
+        <v-row no-gutters>
+          <!-- Use v-for to create a column for each article -->
+          <v-col
+            v-for="article in getArticles"
+            :key="article.id"
+            cols="12"
+            sm="4"
+          >
+            <v-sheet class="ma-2 pa-2">
+              <!-- CustomCard for each article -->
+              <CustomCard
+                :productName="article.story_title"
+                productDescription="This product is truly amazing. Buy it now!"
+                :buttons="[
+                  { text: 'Learn More', color: 'primary', action: () => learnMore(article) },
+                  { text: 'Add to Cart', color: 'secondary', action: () => addToCart(article) },
+                ]"
+              />
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
   </div>
   <div v-else>
     <p>No articles found!</p>
   </div>
-
+    <ArticlePage></ArticlePage>
     </v-main>
   </v-app>
 </template>
@@ -96,7 +107,7 @@ import CustomToggle from "@/components/ui/CustomToggle.vue";
 import CustomCard from "@/components/ui/CustomCard.vue";
 import CustomModal from "@/components/ui/CustomModal.vue";
 import CustomSpinner from "@/components/ui/CustomSpinner.vue";
-
+import ArticlePage from '@/pages/ArticlePage.vue'
 import { mapActions, mapGetters } from "vuex";
 
 export default {
@@ -108,6 +119,7 @@ export default {
     CustomCard,
     CustomModal,
     CustomSpinner,
+    ArticlePage
   },
   computed: {
     ...mapGetters("articleStore", ["getArticles"]), 
