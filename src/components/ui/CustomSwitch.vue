@@ -1,18 +1,26 @@
 <template>
-  <v-btn-toggle v-model="internalValue" :rounded="rounded" group>
-    <v-btn v-for="option in options" :key="option.value" :value="option.value">
-      {{ option.label }}
-    </v-btn>
-  </v-btn-toggle>
+    <v-switch
+      v-model="people"
+      :color="color"
+      :label="label"
+      :value="value"
+      hide-details
+      class="my-0 py-0"
+    ></v-switch>
 </template>
-
 <script>
 export default {
-  name: 'CustomToggle',
+  name: 'CustomSwitch',
   props: {
     value: {
       default: null,
     },
+    label: {
+      default: null,
+    },
+    color: {
+      default: "primary"
+    },  
     options: {
       type: Array,
       required: true,
@@ -24,20 +32,23 @@ export default {
   },
   data() {
     return {
-      internalValue: this.value, 
+      internalValue: this.value,
     };
   },
   watch: {
-   
+
     value(newValue) {
       this.internalValue = newValue;
     },
-  
-    internalValue(newValue) {
-      this.$emit('input', newValue);
-    },
+
   },
 };
 </script>
 <style scoped>
+.p-0{
+  padding:0 !important;
+}
+.m-0{
+  margin: 0 !important;
+}
 </style>

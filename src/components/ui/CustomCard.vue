@@ -6,6 +6,8 @@
         :href=story_url 
         target="_blank">
         {{title}}
+        <v-icon color = "black">mdi-open-in-new</v-icon>
+      
       </a>
       
       </v-card-title>
