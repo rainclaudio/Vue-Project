@@ -1,13 +1,15 @@
 <template>
-    <v-switch
-      v-model="people"
-      :color="color"
-      :label="label"
-      :value="value"
-      hide-details
-      class="my-0 py-0"
-    ></v-switch>
+  <v-switch
+    v-model="internalValue"
+    :color="color"
+    :label="label"
+    :value="value"
+    hide-details
+    class="my-0 py-0"
+    @change="updateValue"
+  ></v-switch>
 </template>
+
 <script>
 export default {
   name: 'CustomSwitch',
@@ -21,14 +23,6 @@ export default {
     color: {
       default: "primary"
     },  
-    options: {
-      type: Array,
-      required: true,
-    },
-    rounded: {
-      type: [Boolean],
-      default: false,
-    },
   },
   data() {
     return {
@@ -36,19 +30,14 @@ export default {
     };
   },
   watch: {
-
     value(newValue) {
       this.internalValue = newValue;
     },
-
+  },
+  methods: {
+    updateValue(value) {
+      this.$emit('input', value);
+    },
   },
 };
 </script>
-<style scoped>
-.p-0{
-  padding:0 !important;
-}
-.m-0{
-  margin: 0 !important;
-}
-</style>

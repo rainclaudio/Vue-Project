@@ -1,5 +1,6 @@
 <template>
-    <v-row v-if="getArticles.length > 0">
+  <!-- DISPLAY ARTICLES HERE -->
+  <v-row v-if="getArticles.length > 0">
       <v-col cols="12" v-for="article in getArticles" :key="article.id" class="py-1">
         <ArticleItem :article="article" />
       </v-col>
@@ -8,25 +9,27 @@
       <p>No articles found!</p>
     </v-row>
 </template>
+
 <script>
 import ArticleItem from '@/components/features/article/ArticleItem.vue';
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
+  name: 'ArticleList',
   components: {
-    ArticleItem
+    ArticleItem,
   },
   computed: {
-    ...mapGetters("articleStore", ["getArticles"]),
+    ...mapGetters('articleStore', ['getArticles']),
   },
   methods: {
-    ...mapActions("articleStore", ["fetchArticles"]),
+    ...mapActions('articleStore', ['fetchArticles']),
   },
   created() {
     this.fetchArticles();
   },
-  name: 'ArticleList',
-
 }
 </script>
-<style></style>
+<style>
+/* Style as needed */
+</style>

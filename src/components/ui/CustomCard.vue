@@ -6,7 +6,7 @@
         :href=story_url 
         target="_blank">
         {{title}}
-        <v-icon color = "black">mdi-open-in-new</v-icon>
+        <v-icon v-if="story_url" color="black">mdi-open-in-new</v-icon>
       
       </a>
       
