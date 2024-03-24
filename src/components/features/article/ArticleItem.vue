@@ -1,31 +1,37 @@
 <template>
-  <div>
-    <!-- Use props.article to access the passed article data -->
+
     <CustomCard
       :title="article.story_title ? article.story_title : article.title"
-      productDescription="This product is truly amazing. Buy it now!"
+      :description="article.comment_text ?? '' "
+      :author="article.author"
+      :date="formattedDate"
+      :story_url="article.story_url"
       :buttons="[
         {
-          text: 'Learn More',
+          text: 'See More',
           color: 'primary',
           action: () => openModal(article),
         }
       ]"
     />
-  </div>
 </template>
 
 <script>
 import CustomCard from '@/components/ui/CustomCard.vue';
-
+import { formatDateToLocal } from '@/utils/DateConverter';
 export default {
+  name: "ArticleItem",
   components: {
     CustomCard
   },
   props: {
     article: Object // Define article as a prop
   },
-  name: "ArticleItem",
+  computed: {
+    formattedDate() {
+      return formatDateToLocal(this.article.created_at);
+    }
+  },
   data() {
     return {
       message: "Hello, Vue!",

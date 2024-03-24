@@ -1,5 +1,9 @@
-import { DateTime } from "luxon";
+import { DateTime } from 'luxon';
 
-let now = DateTime.now();
-let pastTime = now.minus({ hours: 2 });
-console.log(pastTime.toRelative()); // "2 hours ago"
+export function formatDateToLocal(dateString) {
+  const localDate = DateTime.fromISO(dateString).toLocal();
+
+  const formattedDate = localDate.toFormat('MMMM dd, yyyy HH:mm');
+
+  return formattedDate;
+}

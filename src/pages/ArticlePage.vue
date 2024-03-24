@@ -1,8 +1,5 @@
 <template>
-  <div>
     <ArticleList></ArticleList>
-  </div>
-  
 </template>
 
 <script>

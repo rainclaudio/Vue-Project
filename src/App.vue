@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="app-background-color">
     <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
         <v-img
@@ -131,3 +131,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.v-application{
+  background-color:#F3F2ED !important;
+}
+</style>
