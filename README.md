@@ -35,7 +35,7 @@ npm run serve
 
 Below are previews of the main view of the Article Explorer in both desktop and mobile formats:
 #### Desktop View:
-<img src="art/articlesExplorerMainView.gif" alt="Article Explorer Main View" />
+<img src="art/articlesExplorerMainView.gif" alt="Article Explorer Main View" style="height: 50rem;" />
 
 #### Mobile View:
 <img src="art/artcicleExplorarMobileMainView.gif" alt="Article Explorer Mobile Main View" style="height: 30rem;" />
@@ -55,7 +55,6 @@ The project is structured around Vue components, with state management handled b
 Below is the project architecture diagram:
 
 ![Project Architecture](art/project-architecture.PNG)
-
 
 ## 5. Security Aspects
 
