@@ -26,6 +26,7 @@ export default {
   },
   data() {
     return {
+      type: String,
       internalValue: this.value,
     };
   },

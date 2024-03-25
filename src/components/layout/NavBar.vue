@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app color="primary" dark>
+  <v-app-bar app color="primary" dark flat>
     <span class="toolbar-title font-weight-medium">Articles</span>
   </v-app-bar>
 </template>

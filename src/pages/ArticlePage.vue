@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <!-- SWICTH -->
     <v-row v-if="fetchStatus === 'success'">
       <v-col cols="12" class="py-2">
         <v-card class="rounded-0" flat>
@@ -20,8 +21,12 @@
       </v-col>
     </v-row>
 
+    <!-- SPINNER -->
     <v-col cols="12">
-      <div v-if="fetchStatus === 'loading'" class="d-flex align-center justify-center gap-4">
+      <div
+        v-if="fetchStatus === 'loading'"
+        class="d-flex align-center justify-center gap-4"
+      >
         <CustomSpinner size="50"></CustomSpinner>
         <p class="mb-0">Loading Articles...</p>
       </div>
@@ -34,6 +39,7 @@
       </div>
     </v-col>
 
+    <!-- ARTICLE LIST -->
     <ArticleList
       v-if="fetchStatus === 'success'"
       :articles="articles"
