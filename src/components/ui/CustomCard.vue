@@ -1,14 +1,14 @@
 <template>
   <v-card class="full-width" flat>
-      <v-card-title class="px-2 py-4" >
+      <v-card-title class="px-2 py-4 d-flex align-center" >
         <a
-        class="my-custom-link"
+        :class="{'my-custom-link': story_url, 'no-url': !story_url}"
         :href=story_url 
         target="_blank">
         {{title}}
-        <v-icon v-if="story_url" color="black">mdi-open-in-new</v-icon>
-      
+        
       </a>
+      <v-icon v-if="story_url" color="black">mdi-open-in-new</v-icon>
       
       </v-card-title>
 
@@ -98,7 +98,11 @@ export default {
   color: black; 
   text-decoration: none; 
 }
-
+.no-url {
+  color: black; 
+  text-decoration: none; 
+  cursor:default;
+}
 .my-custom-link:hover {
   text-decoration: underline; 
 }

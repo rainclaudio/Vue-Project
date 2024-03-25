@@ -1,13 +1,14 @@
 <template>
-  <!-- DISPLAY ARTICLES HERE -->
   <v-row v-if="getArticles.length > 0">
-      <v-col cols="12" v-for="article in getArticles" :key="article.id" class="py-1">
-        <ArticleItem :article="article" />
-      </v-col>
-    </v-row>
-    <v-row v-else>
-      <p>No articles found!</p>
-    </v-row>
+    <v-col cols="12" v-for="article in getArticles" :key="article.id" class="py-1">
+      <ArticleItem :article="article" />
+    </v-col>
+  </v-row>
+  <v-row v-else>
+    <v-col cols="12" class="py-1">
+      <p>Loading Articles...</p>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
