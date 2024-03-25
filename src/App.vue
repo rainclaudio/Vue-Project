@@ -20,7 +20,10 @@
     <v-main>
 
       <ArticlePage></ArticlePage>
+    
     </v-main>
+
+
   </v-app>
 </template>
 
