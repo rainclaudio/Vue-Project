@@ -73,7 +73,7 @@ export default {
     ArticleDetails,
   },
   props: {
-    article: Object, // Define article as a prop
+    article: Object,
   },
   data() {
     return {
@@ -118,7 +118,7 @@ export default {
   -webkit-box-orient: vertical;  
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 3.4rem; /* Adjust based on your line-height to fit exactly two lines */
+  max-height: 3.4rem;
 }
 @media screen and (max-width: 43em) {
   .break-words {

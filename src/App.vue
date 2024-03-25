@@ -1,44 +1,32 @@
 <template>
   <v-app class="app-background-color">
-
     <NavBar></NavBar>
-
     <v-main>
-
       <ArticlePage></ArticlePage>
-      
     </v-main>
-
-
   </v-app>
 </template>
 
 <script>
-import ArticlePage from '@/pages/ArticlePage.vue'
-import NavBar from '@/components/layout/NavBar.vue'
+import ArticlePage from "@/pages/ArticlePage.vue";
+import NavBar from "@/components/layout/NavBar.vue";
 export default {
   name: "App",
-
   components: {
     ArticlePage,
-    NavBar
+    NavBar,
   },
-  created() {
-  },
-  methods: {
-  },
+  created() {},
+  methods: {},
 
-  data: () => ({
-  }),
+  data: () => ({}),
 
-  watch: {
-    
-  },
+  watch: {},
 };
 </script>
 
 <style>
 .v-application {
-  background-color: #F3F2ED !important;
+  background-color: #f3f2ed !important;
 }
 </style>
