@@ -35,10 +35,10 @@ npm run serve
 
 Below are previews of the main view of the Article Explorer in both desktop and mobile formats:
 #### Desktop View:
-<img src="art/articlesExplorerMainView.gif" alt="Article Explorer Main View" width="50%" />
+<img src="art/articlesExplorerMainView.gif" alt="Article Explorer Main View" />
 
 #### Mobile View:
-<img src="art/artcicleExplorarMobileMainView.gif" alt="Article Explorer Mobile Main View" height="50%" />
+<img src="art/artcicleExplorarMobileMainView.gif" alt="Article Explorer Mobile Main View" style="height: 30rem;" />
 
 ## 4. Project Architecture
 
