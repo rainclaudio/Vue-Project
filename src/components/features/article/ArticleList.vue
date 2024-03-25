@@ -1,36 +1,39 @@
 <template>
-  <v-row v-if="getArticles.length > 0">
-    <v-col cols="12" v-for="article in getArticles" :key="article.id" class="py-1">
+  <v-row v-if="articles.length > 0">
+    <v-col cols="12" v-for="article in articles" :key="article.id" class="py-1">
       <ArticleItem :article="article" />
     </v-col>
   </v-row>
-  <v-row v-else>
-    <v-col cols="12" class="py-1">
-      <p>Loading Articles...</p>
-    </v-col>
-  </v-row>
+
 </template>
 
 <script>
 import ArticleItem from '@/components/features/article/ArticleItem.vue';
-import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'ArticleList',
   components: {
     ArticleItem,
   },
+  props: {
+    articles: {
+      type: Array,
+      required: true
+    }
+  },
   computed: {
-    ...mapGetters('articleStore', ['getArticles']),
   },
   methods: {
-    ...mapActions('articleStore', ['fetchArticles']),
   },
   created() {
-    this.fetchArticles();
   },
 }
 </script>
-<style>
-/* Style as needed */
+<style scoped>
+  .gap-2{
+    gap: 0.5rem;
+  }
+  .gap-4{
+    gap: 1rem;
+  }
 </style>

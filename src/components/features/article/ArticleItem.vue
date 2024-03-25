@@ -2,11 +2,12 @@
   <div>
     <CustomCard>
       <template #cardTitle>
-        <v-card-title class="px-2 py-4 d-flex align-center">
+        <v-card-title class="px-4 py-4 d-flex align-center">
           <a
             :class="{
               'my-custom-link': article.story_url,
               'no-url': !article.story_url,
+              'break-words': true
             }"
             :href="
               article.story_url ? article.story_url : 'javascript:void(0);'
@@ -21,7 +22,7 @@
 
       <template #cardContent>
         <v-divider></v-divider>
-        <div class="user-card px-2 pt-2">
+        <div class="user-card px-4 mb-2 pt-2">
           <v-card class="d-flex align-center" flat tile>
             <v-avatar size="48" class="mr-2 align-self-center" color="primary">
               <span class="white--text text-uppercase">{{
@@ -37,22 +38,19 @@
           </v-card>
         </div>
         <v-card-text
-          class="subtitle-1 pl-2 pr-4 py-1 two-line-limit"
+          class="subtitle-1 pl-4 pr-4 py-0 two-line-limit"
           v-html="formattedDescription()"
         >
         </v-card-text>
       </template>
       <template #cardActions>
         <v-card-actions>
-          <button class="py-1" @click="openModal">
+          <button class="py-1 pl-2" @click="openModal">
             See More
           </button>
         </v-card-actions>
       </template>
     </CustomCard>
-    <v-dialog v-model="showModal" max-width="600px">
-      <ArticleDetails :article="article"></ArticleDetails>
-    </v-dialog>
     <CustomModal :show.sync="showModal" width="600">
       <template #body>
         <ArticleDetails :article="article"></ArticleDetails>
@@ -84,19 +82,14 @@ export default {
   },
   methods: {
     openModal() {
-      console.log(this.article);
       this.showModal = true;
     },
     formattedDescription() {
-      const maxLength = 650; // Maximum characters to display
-      let description = this.article.comment_text
+      let description_text = this.article.comment_text ?? this.article.story_text
+      let description = description_text
         .replace(/&quot;/g, '"')
         .replace(/&#x27;/g, "'");
 
-      if (description.length > maxLength) {
-        // Truncate the description and add ellipsis
-        return description.substring(0, maxLength) + "...";
-      }
 
       return description;
     },
@@ -127,23 +120,13 @@ export default {
   text-overflow: ellipsis;
   max-height: 3.4rem; /* Adjust based on your line-height to fit exactly two lines */
 }
-.no-styles-btn {
-  background: none !important;
-  border: none !important;
-  padding: 0 !important;
-  font: inherit !important;
-  font-size: 1em !important;
-  cursor: pointer;
-  outline: inherit !important;
-  text-transform: none !important;
-  opacity: 1 !important;
+@media screen and (max-width: 43em) {
+  .break-words {
+    overflow-wrap: break-word;
+     word-break: break-word;
+  }
 }
-.no-styles-btn:focus, .no-styles-btn:hover, .no-styles-btn:active {
-  background-color: transparent !important; /* Prevents background color change */
-  color: black !important; /* Keeps the text color unchanged */
-      opacity: 1 !important;
 
-}
 .v-btn__content{
     opacity: 1 !important;
 }

@@ -32,5 +32,6 @@ npm run serve
 https://vuex.vuejs.org/
 https://axios-http.com/docs
 https://vuetifyjs.com/en/components
-
-
+https://vuex.vuejs.org/#what-is-a-state-management-pattern
+https://medium.com/@barisberkemalkoc/axios-interceptor-intelligent-db46653b7303
+https://stackoverflow.com/questions/52737078/how-can-you-use-axios-interceptors

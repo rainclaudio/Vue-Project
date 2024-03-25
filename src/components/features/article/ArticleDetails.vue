@@ -7,6 +7,7 @@
             :class="{
               'my-custom-link': article.story_url,
               'no-url': !article.story_url,
+               'break-words': true
             }"
             :href="
               article.story_url ? article.story_url : 'javascript:void(0);'
@@ -22,7 +23,7 @@
 
       <template #cardContent>
         <v-divider></v-divider>
-        <div class="user-card px-2 pt-2">
+        <div class="user-card px-2 pt-2 mb-2">
           <v-card class="d-flex align-center" flat tile>
             <v-avatar size="48" class="mr-2 align-self-center" color="primary">
               <span class="white--text text-uppercase">{{
@@ -37,7 +38,7 @@
             </div>
           </v-card>
         </div>
-        <div class="px-2 py-1">
+        <div class="px-2">
           <v-card-text
             class="subtitle-1 px-0 py-0"
             v-html="formattedDescription()"
@@ -45,9 +46,9 @@
           </v-card-text>
         </div>
 
-        <div class="px-2">
+        <div class="d-flex flex-wrap gap-4 px-2 mt-1">
           <v-chip
-            class="white--text"
+            class="white--text mx-0 "
             color="accent_orange"
             v-for="(tag, index) in article._tags"
             :key="index"
@@ -76,7 +77,9 @@ export default {
   },
   methods: {
     formattedDescription() {
-      return this.article.comment_text
+      let description_text = this.article.comment_text ?? this.article.story_text
+      
+      return description_text
         .replace(/&quot;/g, '"')
         .replace(/&#x27;/g, "'");
     },
@@ -99,9 +102,18 @@ export default {
 .text-container {
   max-height: 5rem;
 }
+@media screen and (max-width: 43em) {
+  .break-words {
+    overflow-wrap: break-word;
+     word-break: break-word;
+  }
 
+}
 .full-width {
   min-width: 100%;
+}
+.gap-4{
+  gap: 4px;
 }
 .my-custom-link {
   color: 'primary';
