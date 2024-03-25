@@ -7,7 +7,7 @@
 3. [Features](#3-features)
 4. [Project Architecture](#4-project-architecture)
 5. [Security Aspects](#5-security-aspects)
-6. [Error Handling](#6-exception-handling)
+6. [Exception Handling](#6-exception-handling)
 7. [References](#7-references)
 
 ## 1. Summary
