@@ -38,7 +38,7 @@ Below are previews of the main view of the Article Explorer in both desktop and 
 <img src="art/articlesExplorerMainView.gif" alt="Article Explorer Main View"  />
 
 #### Mobile View:
-<img src="art/artcicleExplorarMobileMainView.gif" alt="Article Explorer Mobile Main View" style="height: 30rem;" />
+<img src="art/artcicleExplorerMobileMainView.gif" alt="Article Explorer Mobile Main View" style="height: 30rem;" />
 
 ## 4. Project Architecture
 
