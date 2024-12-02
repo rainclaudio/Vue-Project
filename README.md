@@ -1,4 +1,4 @@
-# Vue Homework
+# Vue Algolia Project
 
 ## Contents
 
